@@ -1,8 +1,10 @@
 const express = require("express");
 const router = new express.Router();
 
+const cities = require("../utils/cities/cities");
+
 router.get("/cities", async (req, res) => {
-  res.status(201).send("hello");
+  res.json(cities);
 });
 
 module.exports = router;
