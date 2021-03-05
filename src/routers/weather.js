@@ -13,8 +13,10 @@ router.get("/weather/coords/lat=:lat&lng=:lng", async (req, res) => {
     await getAirQualityData(lat, lng).then((quality) => quality),
     await getWeatherData(lat, lng),
   ]);
-
-  res.send([airQuality, weatherData]);
+  if (!airQuality && !weatherData) {
+    res.sendStatus(404);
+  }
+  res.status(200).send([airQuality, weatherData]);
 });
 
 router.get("/weather/name/:name", async (req, res) => {
