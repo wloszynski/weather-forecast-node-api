@@ -16,7 +16,9 @@ const getAirQualityData = async function (lat, lng) {
   )
     .then((response) => response.json())
     .then((data) => data.list[0].main.aqi)
-    .then((quality) => airQuality.get(quality))
+    .then((quality) => {
+      return { airQuality: airQuality.get(quality) };
+    })
     .catch((err) => console.error(err));
 };
 

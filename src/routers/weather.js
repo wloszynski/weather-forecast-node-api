@@ -16,7 +16,7 @@ router.get("/weather/coords/lat=:lat&lng=:lng", async (req, res) => {
   if (!airQuality && !weatherData) {
     res.sendStatus(404);
   }
-  res.status(200).send([airQuality, weatherData]);
+  res.status(200).send([{ ...airQuality, ...weatherData }]);
 });
 
 router.get("/weather/name/:name", async (req, res) => {
