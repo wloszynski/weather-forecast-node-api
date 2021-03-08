@@ -7,9 +7,7 @@ const getCoordsFromCityName = async function (cityName) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (data.error) {
-        alert("Could not find given city, try again.");
         throw new Error("Could not find given city");
       }
       return { lat: data[0].lat, lng: data[0].lon };
