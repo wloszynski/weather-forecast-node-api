@@ -11,7 +11,7 @@ const getCoordsFromCityName = async function (cityName) {
         alert("Could not find given city, try again.");
         throw new Error("Could not find given city");
       }
-      return [data[0].lat, data[0].lon];
+      return { lat: data[0].lat, lng: data[0].lon };
     })
     .catch((err) => {
       console.error(err);
