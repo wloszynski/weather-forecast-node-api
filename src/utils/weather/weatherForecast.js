@@ -7,8 +7,8 @@ const getWeatherData = async function (lat, lng) {
   )
     .then((response) => response.json())
     .then((data) => {
-      const { dt, temp, clouds, feels_like, sunset, humidity } = data.current;
-      return { dt, temp, clouds, feels_like, sunset, humidity };
+      const { daily, current } = data;
+      return { daily, current };
     })
     .catch((err) => console.error(err));
 };
